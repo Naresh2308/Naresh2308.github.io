@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Digital Clock</title>
+        <style>
+            ul{
+                display: flex;
+                justify-content: space-around;
+                letter-spacing: 3px;
+                list-style: none;
+                font-weight: bold;
+            }
+            a{
+                text-decoration:none ;
+                color: rgba(0, 0, 0);
+                font-family: 'Courier New', Courier, monospace;
+                font-size: large;
+            }
+            a:hover{
+                color: rgba(250, 235, 215, 0.64);
+
+            }
+            body{
+                background-image: linear-gradient(to right,#94b719,#777777);
+                
+            }
+            .Clock{
+                font-family: "Agency FB","Aldhabi","Tempus Sans ITC";
+                text-align: center;
+                top:50%;
+                left:50%;
+                position: absolute;
+                color: rgb(1, 62, 147);
+                font-size: 70px;
+                letter-spacing: 10px;
+                transform: translateX(-50%) translateY(-50%);
+            }
+            .Clock:hover{
+                color: rgb(144, 209, 225);
+                font-weight: bold;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <header><nav>
+            <ul>
+                <li><a href="">Digital Clock</a></li>
+                <li><a href="">Calculator</a></li>
+                <li><a href="">To-Do List</a></li>
+            </ul>
+        </nav></header>
+        <div id="Digital_Clock" class="Clock">
+            <script type="text/javascript">
+                function showTime(){
+                    var date =new Date();
+                    var hr = date.getHours();
+                    var min = date.getMinutes();
+                    var sec= date.getSeconds();
+                    var session="AM";
+                    hr=(hr==0)?12:hr;
+                    if(hr>12){
+                        hr-=12;
+                        session="PM"
+                    }
+                    hr=(hr<10)?"0"+hr:hr;
+                    min=(min<10)?"0"+min:min;
+                    sec=(sec<10)?"0"+sec:sec;
+                    document.getElementById("Digital_Clock").innerHTML=hr+":"+min+":"+sec+" "+session;
+                    setTimeout(showTime,1000);
+                }
+                showTime();
+            </script>
+        </div>
+    </body>
+</html>
